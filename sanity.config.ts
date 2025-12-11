@@ -5,7 +5,7 @@ import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'Coforma',
+  title: 'Sanity Test',
 
   projectId: '3ljyhtiw',
   dataset: 'production',
