@@ -1,8 +1,0 @@
-*[_type == 'post'] {
-  title,
-
-  'authorName': author->name,
-  'categoryTitle': category->title,
-
-  body
-}
