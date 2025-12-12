@@ -5,16 +5,14 @@
   "main": "package.json",
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "eleventy --serve",
+    "dev": "npm run scss:watch & eleventy --serve",
     "start": "sanity start",
-    "build": "eleventy",
+    "build": "npm run scss:build && eleventy",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
-    "serve": "node serve.js"
+    "scss:build": "sass src/scss/main.scss static/styles.css",
+    "scss:watch": "sass --watch src/scss/main.scss:static/styles.css"
   },
-  "keywords": [
-    "sanity"
-  ],
   "dependencies": {
     "@portabletext/to-html": "^2.0.0",
     "@sanity/client": "^6.16.1",
@@ -32,6 +30,10 @@
     "eslint": "^9.28",
     "prettier": "^3.7.4",
     "prettier-plugin-groq": "^0.2.5",
+    "sass": "^1.96.0",
     "typescript": "^5.8"
+  },
+  "sass": {
+    "style": "expanded"
   }
 }

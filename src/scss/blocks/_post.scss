@@ -1,0 +1,35 @@
+@use '../variables' as *;
+
+.post {
+  &__title {
+    font-size: 2rem;
+    margin: $space-6 0 $space-3;
+  }
+  &__meta {
+    color: $color-muted;
+    font-size: 0.95rem;
+  }
+  &__content {
+    font-size: 1.05rem;
+  }
+
+  /* Elements inside content */
+  &__content {
+    p {
+      margin: $space-4 0;
+    }
+    img {
+      max-width: 100%;
+      border-radius: $radius-md;
+    }
+    pre {
+      padding: $space-4;
+      background: #f4f6fa;
+      border-radius: $radius-md;
+      overflow: auto;
+    }
+    code {
+      font-family: $font-mono;
+    }
+  }
+}

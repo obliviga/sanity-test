@@ -1,23 +1,25 @@
 <!doctype html>
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ title | default: "Site" }}</title>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>{{ title | default: 'Site' }}</title>
+    <link rel='stylesheet' href='/static/styles.css'>
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/blog/">Blog</a>
-      </nav>
+    <header class='header'>
+      <div class='header__inner container'>
+        <div class='header__brand'>Site</div>
+        <nav class='header__nav'>
+          <a class='header__link' href='/'>Home</a>
+          <a class='header__link' href='/blog/'>Blog</a>
+        </nav>
+      </div>
     </header>
     <main>{{ content }}</main>
 
-
-
     <footer>
-            <small>&copy; {{ site.year }}</small>
+      <small>&copy; {{ site.year }}</small>
     </footer>
   </body>
 </html>

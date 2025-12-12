@@ -1,0 +1,30 @@
+@use '../variables' as *;
+
+.header {
+  background: #f7f8fb;
+  border-bottom: 1px solid #e7e9f3;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: $space-4;
+    padding: $space-4;
+  }
+
+  &__brand {
+    font-weight: 600;
+  }
+  &__nav {
+    display: flex;
+    gap: $space-4;
+  }
+  &__link {
+    color: $color-text;
+    padding: $space-2 $space-3;
+    border-radius: $radius-sm;
+  }
+  &__link--active {
+    background: #eaf0ff;
+    color: $color-primary;
+  }
+}

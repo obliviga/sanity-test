@@ -7,21 +7,24 @@ pagination:
   alias: post
 permalink: /blog/
 ---
-
-<h1>Blog</h1>
-{% if posts and posts.size %}
-  <ul>
-    {% for p in posts %}
-      <li>
-        <h2><a href="/blog/{{ p.slug }}/">{{ p.title }}</a></h2>
-        <p><strong>Author:</strong> {{ p.authorName }}</p>
-        {% if p.categoryTitles and p.categoryTitles.size %}
-          <p><strong>Categories:</strong> {{ p.categoryTitles | join: ", " }}</p>
-        {% endif %}
-        <div>{{ p.body | portableText }}</div>
-      </li>
-    {% endfor %}
-  </ul>
-{% else %}
-  <p>No posts found.</p>
-{% endif %}
+<section class='blog container'>
+  <h1 class='blog__title'>Blog</h1>
+  {% if posts and posts.size %}
+    <ul class='blog__list'>
+      {% for p in posts %}
+        <li class='blog__item'>
+          <h2 class='blog__item-title'>
+            <a class='blog__link' href='/blog/{{ p.slug }}/'>{{ p.title }}</a>
+          </h2>
+          <p class='blog__item-meta'><strong>Author:</strong> {{ p.authorName }}</p>
+          {% if p.categoryTitles and p.categoryTitles.size %}
+            <p class='blog__item-meta'><strong>Categories:</strong> {{ p.categoryTitles | join: ', ' }}</p>
+          {% endif %}
+          <div class='blog__item-excerpt'>{{ p.body | portableText }}</div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class='u-muted'>No posts found.</p>
+  {% endif %}
+</section>

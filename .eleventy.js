@@ -1,17 +1,19 @@
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy({static: 'static'})
+  // Ensure HMR
+  eleventyConfig.addPassthroughCopy({ static: 'static' });
+  eleventyConfig.addWatchTarget('src/');
 
   // Portable Text renderer
-  const {toHTML} = require('@portabletext/to-html')
+  const { toHTML } = require('@portabletext/to-html');
   eleventyConfig.addFilter('portableText', (blocks) => {
-    if (!blocks) return ''
+    if (!blocks) return '';
     try {
-      return toHTML(blocks)
+      return toHTML(blocks);
     } catch (e) {
-      console.warn('Portable Text render error:', e.message)
-      return ''
+      console.warn('Portable Text render error:', e.message);
+      return '';
     }
-  })
+  });
 
   return {
     dir: {
@@ -20,8 +22,7 @@ module.exports = function (eleventyConfig) {
       data: '_data',
       output: '_site',
     },
-    htmlTemplateEngine: 'njk',
-    markdownTemplateEngine: 'njk',
-    templateFormats: ['njk', 'md', 'html'],
-  }
-}
+    htmlTemplateEngine: 'liquid',
+    templateFormats: ['liquid'],
+  };
+};

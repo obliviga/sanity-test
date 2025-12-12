@@ -7,14 +7,14 @@ pagination:
   alias: post
 permalink: '/blog/{{ post.slug }}/'
 ---
-<article>
-  <h1>{{ post.title }}</h1>
+<article class='post container'>
+  <h1 class='post__title'>{{ post.title }}</h1>
 
-  <p><strong>Author:</strong> {{ post.authorName }}</p>
+  <p class='post__meta'><strong>Author:</strong> {{ post.authorName }}</p>
 
   {% if post.categoryTitles and post.categoryTitles.size %}
-    <p><strong>Categories:</strong> {{ post.categoryTitles | join: ', ' }}</p>
+    <p class='post__meta'><strong>Categories:</strong> {{ post.categoryTitles | join: ', ' }}</p>
   {% endif %}
 
-  <div>{{ post.body | portableText }}</div>
+  <div class='post__content'>{{ post.body | portableText }}</div>
 </article>
