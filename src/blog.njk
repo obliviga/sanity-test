@@ -12,16 +12,14 @@ permalink: /blog/
   <ul>
     {% for p in posts %}
       <li>
-        <h2>{{ p.title }}</h2>
+        <h2><a href="/blog/{{ p.slug }}/">{{ p.title }}</a></h2>
         <p><strong>Author:</strong> {{ p.authorName }}</p>
-        <p><strong>Category:</strong> {{ p.categoryTitle }}</p>
-        {% if p.body %}
-          {% for block in p.body %}
-            {% if block._type == 'block' and block.children %}
-              <p>{% for c in block.children %}{{ c.text }}{% endfor %}</p>
-            {% endif %}
-          {% endfor %}
+        {% if p.categoryTitles and p.categoryTitles.length %}
+        <p><strong>Categories:</strong> {{ p.categoryTitles | join(', ') }}</p>
         {% endif %}
+        <div>
+          {{ p.body | portableText | safe }}
+        </div>
       </li>
     {% endfor %}
   </ul>

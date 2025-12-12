@@ -9,8 +9,9 @@ const client = createClient({
 
 const query = `*[_type == "post"]{
   title,
+  "slug": slug.current,
   "authorName": author->name,
-  "categoryTitle": category->title,
+  "categoryTitles": categories[]->title,
   body
 }`
 

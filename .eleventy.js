@@ -1,6 +1,17 @@
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({static: 'static'})
-  eleventyConfig.addPassthroughCopy({'blog/style.css': 'style.css'})
+
+  // Portable Text renderer
+  const {toHTML} = require('@portabletext/to-html')
+  eleventyConfig.addFilter('portableText', (blocks) => {
+    if (!blocks) return ''
+    try {
+      return toHTML(blocks)
+    } catch (e) {
+      console.warn('Portable Text render error:', e.message)
+      return ''
+    }
+  })
 
   return {
     dir: {
