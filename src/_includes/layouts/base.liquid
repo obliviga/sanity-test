@@ -4,15 +4,15 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>{{ title | default: 'Site' }}</title>
-    <link rel='stylesheet' href='/static/styles.css'>
+    <link rel='stylesheet' href='{{ page.url | pathToRoot }}static/styles.css'>
   </head>
   <body>
     <header class='header'>
       <div class='header__inner container'>
         <div class='header__brand'>Site</div>
         <nav class='header__nav'>
-          <a class='header__link' href='/'>Home</a>
-          <a class='header__link' href='/blog/'>Blog</a>
+          <a class='header__link' href='{{ page.url | pathToRoot }}'>Home</a>
+          <a class='header__link' href='{{ page.url | pathToRoot }}blog/'>Blog</a>
         </nav>
       </div>
     </header>

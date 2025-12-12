@@ -14,7 +14,7 @@ permalink: /blog/
       {% for p in posts %}
         <li class='blog__item'>
           <h2 class='blog__item-title'>
-            <a class='blog__link' href='/blog/{{ p.slug }}/'>{{ p.title }}</a>
+            <a class='blog__link' href='{{ page.url | pathToRoot }}blog/{{ p.slug }}/'>{{ p.title }}</a>
           </h2>
           <p class='blog__item-meta'><strong>Author:</strong> {{ p.authorName }}</p>
           {% if p.categoryTitles and p.categoryTitles.size %}

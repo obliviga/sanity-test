@@ -1,11 +1,19 @@
 module.exports = function (eleventyConfig) {
-  // Watch SCSS sources; CSS is written directly into _site/static
-  eleventyConfig.addWatchTarget('src/scss/');
+  eleventyConfig.addWatchTarget('src/');
+
+  // Compute path from a page to the site root for relative asset URLs
+  eleventyConfig.addFilter('pathToRoot', (url) => {
+    if (!url || url === '/') return '';
+    const parts = String(url).split('/').filter(Boolean);
+    return '../'.repeat(parts.length);
+  });
 
   // Portable Text renderer
   const { toHTML } = require('@portabletext/to-html');
+
   eleventyConfig.addFilter('portableText', (blocks) => {
     if (!blocks) return '';
+
     try {
       return toHTML(blocks);
     } catch (e) {

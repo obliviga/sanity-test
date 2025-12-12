@@ -5,5 +5,5 @@ title: Home
 <section class='home container'>
   <h1 class='home__title'>Welcome</h1>
   <p class='home__intro'>This is the homepage built with Eleventy (11ty).</p>
-  <p class='home__cta'>Head to the <a href='/blog/'>Blog</a> to see posts from Sanity.</p>
+  <p class='home__cta'>Head to the <a href='{{ page.url | pathToRoot }}blog/'>Blog</a> to see posts from Sanity.</p>
 </section>

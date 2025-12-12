@@ -5,11 +5,12 @@
   "main": "package.json",
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "npm run scss:watch & eleventy --serve",
+    "dev": "npm run clean && npm run scss:watch & eleventy --serve",
     "start": "sanity start",
-    "build": "npm run scss:build && eleventy",
+    "build": "npm run clean && npm run scss:build && eleventy",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
+    "clean": "rm -rf _site",
     "scss:build": "sass src/scss/main.scss _site/static/styles.css",
     "scss:watch": "sass --watch src/scss/main.scss:_site/static/styles.css"
   },
