@@ -1,7 +1,6 @@
 module.exports = function (eleventyConfig) {
-  // Ensure HMR
-  eleventyConfig.addPassthroughCopy({ static: 'static' });
-  eleventyConfig.addWatchTarget('src/');
+  // Watch SCSS sources; CSS is written directly into _site/static
+  eleventyConfig.addWatchTarget('src/scss/');
 
   // Portable Text renderer
   const { toHTML } = require('@portabletext/to-html');

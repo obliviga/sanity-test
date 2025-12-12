@@ -10,8 +10,8 @@
     "build": "npm run scss:build && eleventy",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
-    "scss:build": "sass src/scss/main.scss static/styles.css",
-    "scss:watch": "sass --watch src/scss/main.scss:static/styles.css"
+    "scss:build": "sass src/scss/main.scss _site/static/styles.css",
+    "scss:watch": "sass --watch src/scss/main.scss:_site/static/styles.css"
   },
   "dependencies": {
     "@portabletext/to-html": "^2.0.0",
