@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+title: Blog
+pagination:
+  data: posts
+  size: 100
+  alias: post
+permalink: /blog/
+---
+<h1>Blog</h1>
+{% if posts and posts.length %}
+  <ul>
+    {% for p in posts %}
+      <li>
+        <h2>{{ p.title }}</h2>
+        <p><strong>Author:</strong> {{ p.authorName }}</p>
+        <p><strong>Category:</strong> {{ p.categoryTitle }}</p>
+        {% if p.body %}
+          {% for block in p.body %}
+            {% if block._type == 'block' and block.children %}
+              <p>{% for c in block.children %}{{ c.text }}{% endfor %}</p>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No posts found.</p>
+{% endif %}
