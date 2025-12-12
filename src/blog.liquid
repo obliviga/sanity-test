@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: layouts/base.liquid
 title: Blog
 pagination:
   data: posts
@@ -7,19 +7,18 @@ pagination:
   alias: post
 permalink: /blog/
 ---
+
 <h1>Blog</h1>
-{% if posts and posts.length %}
+{% if posts and posts.size %}
   <ul>
     {% for p in posts %}
       <li>
         <h2><a href="/blog/{{ p.slug }}/">{{ p.title }}</a></h2>
         <p><strong>Author:</strong> {{ p.authorName }}</p>
-        {% if p.categoryTitles and p.categoryTitles.length %}
-        <p><strong>Categories:</strong> {{ p.categoryTitles | join(', ') }}</p>
+        {% if p.categoryTitles and p.categoryTitles.size %}
+          <p><strong>Categories:</strong> {{ p.categoryTitles | join: ", " }}</p>
         {% endif %}
-        <div>
-          {{ p.body | portableText | safe }}
-        </div>
+        <div>{{ p.body | portableText }}</div>
       </li>
     {% endfor %}
   </ul>

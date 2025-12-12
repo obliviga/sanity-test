@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ title | default("Site") }}</title>
+    <title>{{ title | default: "Site" }}</title>
   </head>
   <body>
     <header>
@@ -12,11 +12,12 @@
         <a href="/blog/">Blog</a>
       </nav>
     </header>
-    <main>
-      {{ content | safe }}
-    </main>
+    <main>{{ content }}</main>
+
+
+
     <footer>
-      <small>&copy; {{ site.year }}</small>
+            <small>&copy; {{ site.year }}</small>
     </footer>
   </body>
 </html>
